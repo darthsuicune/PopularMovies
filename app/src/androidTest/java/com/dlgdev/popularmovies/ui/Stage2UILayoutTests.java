@@ -79,12 +79,12 @@ public class Stage2UILayoutTests {
 	}
 
 	@Test public void uiContainsScreenForDisplayingDetailsForAMovie() {
-		onView(withId(R.id.fragment_movie_posters)).perform(actionOnItemAtPosition(0, click()));
+		clickFirstPoster();
 		onView(withId(R.id.plot_synopsis)).check(matches(isDisplayed()));
 	}
 
 	@Test public void detailsScreenContainsTitleReleaseDatePosterVoteAverageSynopsis() {
-		onView(withId(R.id.fragment_movie_posters)).perform(actionOnItemAtPosition(0, click()));
+		clickFirstPoster();
 
 		onView(withId(R.id.title)).check(matches(isDisplayed()));
 		onView(withId(R.id.release_date)).check(matches(isDisplayed()));
@@ -94,14 +94,14 @@ public class Stage2UILayoutTests {
 	}
 
 	@Test public void detailsContainsSectionForTrailerVideosAndUserReviews() {
-		onView(withId(R.id.fragment_movie_posters)).perform(actionOnItemAtPosition(0, click()));
+		clickFirstPoster();
 
 		onView(withId(R.id.trailers_label)).check(matches(isDisplayed()));
 		onView(withId(R.id.user_reviews_label)).check(matches(isDisplayed()));
 	}
 
 	@Test public void detailsContainsSectionForTrailerVideos() {
-		onView(withId(R.id.fragment_movie_posters)).perform(actionOnItemAtPosition(0, click()));
+		clickFirstPoster();
 		onView(withId(R.id.trailers_label)).perform(click());
 		onView(withId(R.id.trailers)).check(matches(isDisplayed()));
 	}
