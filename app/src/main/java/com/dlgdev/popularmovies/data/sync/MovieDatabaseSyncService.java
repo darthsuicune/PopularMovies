@@ -31,7 +31,7 @@ public class MovieDatabaseSyncService extends Service {
 		TheMovieDatabaseApi api = new Retrofit.Builder().baseUrl("http://api.themoviedb.org/")
 				.addConverterFactory(GsonConverterFactory.create(gson)).build()
 				.create(TheMovieDatabaseApi.class);
-		TheMovieDatabase db = new TheMovieDatabase(getString(R.string.apikey), api);
+		TheMovieDatabase db = new TheMovieDatabase(/*getString(R.string.apikey)*/, api);
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		synchronized (syncAdapterLock) {
 			if (syncAdapter == null) {
