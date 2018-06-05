@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.dlgdev.popularmovies"
         minSdkVersion 14
@@ -27,36 +27,36 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     def supportVersion = "27.1.0"
     def butterKnifeVersion = "8.0.1"
     def retrofitVersion = "2.1.0"
     def picassoVersion = "2.5.2"
     def constraintLayoutVersion = "1.0.2"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
-    compile "com.android.support:appcompat-v7:${supportVersion}"
-    compile "com.android.support:support-v4:${supportVersion}"
-    compile "com.android.support:support-vector-drawable:${supportVersion}"
-    compile "com.jakewharton:butterknife:${butterKnifeVersion}"
-    compile "com.android.support:recyclerview-v7:${supportVersion}"
-    compile "com.squareup.picasso:picasso:${picassoVersion}"
-    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-    compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
-    compile "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+    implementation "com.android.support:appcompat-v7:${supportVersion}"
+    implementation "com.android.support:support-v4:${supportVersion}"
+    implementation "com.android.support:support-vector-drawable:${supportVersion}"
+    implementation "com.jakewharton:butterknife:${butterKnifeVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportVersion}"
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
 
     def junitVersion = 4.12
     def mockitoVersion = "2.6.1"
-    testCompile "junit:junit:${junitVersion}"
-    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
 
     def espressoVersion = "2.2.2"
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
         exclude group: "com.android.support", module: "appcompat-v7"
         exclude group: "com.android.support", module: "support-v4"
         exclude module: "design"
         exclude module: "recyclerview-v7"
     }
-    androidTestCompile "com.android.support:support-annotations:${supportVersion}"
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:${espressoVersion}"
-    androidTestCompile "org.mockito:mockito-android:${mockitoVersion}"
+    androidTestImplementation "com.android.support:support-annotations:${supportVersion}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:${espressoVersion}"
+    androidTestImplementation "org.mockito:mockito-android:${mockitoVersion}"
 }
