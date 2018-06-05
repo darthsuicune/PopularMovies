@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -79,8 +80,8 @@ public class MovieDetailsFragment extends Fragment {
 		return fragment;
 	}
 
-	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	                                   Bundle savedInstanceState) {
+	@Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+									   Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_movie_details, container, false);
 		ButterKnife.bind(this, v);
 		setupViews();
@@ -200,9 +201,9 @@ public class MovieDetailsFragment extends Fragment {
 
 	private class MoviesLoaderHelper implements LoaderManager.LoaderCallbacks<Cursor> {
 
-		@Override public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		@NonNull @Override public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 			if (args == null) {
-				return null;
+				throw new RuntimeException();
 			}
 
 			Uri uri;
@@ -233,7 +234,7 @@ public class MovieDetailsFragment extends Fragment {
 			return loader;
 		}
 
-		@Override public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+		@Override public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
 			if (data != null && data.moveToFirst()) {
 				switch (loader.getId()) {
 					case LOADER_TRAILERS:

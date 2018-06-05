@@ -18,9 +18,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        abortOnError false
-    }
     packagingOptions {
         exclude 'META-INF/LICENSE'
     }
@@ -28,11 +25,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    def supportVersion = "27.1.0"
+    def supportVersion = "27.1.1"
     def butterKnifeVersion = "8.0.1"
     def retrofitVersion = "2.1.0"
     def picassoVersion = "2.5.2"
-    def constraintLayoutVersion = "1.0.2"
+    def constraintLayoutVersion = "1.1.0"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
     implementation "com.android.support:appcompat-v7:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
